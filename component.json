@@ -1,5 +1,5 @@
 {
-  "name": "json-diff",
-  "version": "0.0.1",
+  "name": "json-diff-patch",
+  "version": "0.0.2",
   "main": "./jsondiff.js"
 }

@@ -1,6 +1,6 @@
 {
-  "name": "json-diff",
-  "author": "Adam Griffiths & Byron Ruth",
+  "name": "json-diff-patch",
+  "author": "Adam Griffiths",
   "version": "0.0.1",
   "description": "A JavaScript implementation of the JSON Media Type for partial modifications: http://tools.ietf.org/html/draft-ietf-appsawg-json-patch-06",
   "license": "BSD",
@@ -14,6 +14,8 @@
   "main": "jsondiff.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+    "bower-register": "bower register json-diff-patch git://github.com/aogriffiths/jsondiff-js.git"
+    "npm-publish": "npm publish"
   },
   "repository": {
     "type": "git",
