@@ -114,7 +114,7 @@
     getParent = function(paths, path) {
       var idx;
       idx = path.lastIndexOf("/");
-      if (idx !== -1) {
+      if (idx === -1) {
         return null;
       } else {
         return paths[path.substring(0, idx)];

@@ -133,7 +133,7 @@
     #Patch helper functions
     getParent = (paths, path) ->
 	    idx = path.lastIndexOf("/")
-	    if idx != -1 then null else paths[path.substring(0,idx)]		
+	    if idx == -1 then null else paths[path.substring(0,idx)]		
 
     #Checks if `obj` is an array or object
     isContainer = (obj) ->
