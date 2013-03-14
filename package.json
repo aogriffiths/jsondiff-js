@@ -13,8 +13,8 @@
   ],
   "main": "jsondiff.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-    "bower-register": "bower register json-diff-patch git://github.com/aogriffiths/jsondiff-js.git"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bower-register": "bower register json-diff-patch git://github.com/aogriffiths/jsondiff-js.git",
     "npm-publish": "npm publish"
   },
   "repository": {

@@ -163,7 +163,7 @@
     #Constructs a patch that when applied to `obj2`, it will be equivalent
     #to `obj1`. The patch format conforms to IETF JSON Patch proposal
     #http://tools.ietf.org/html/draft-ietf-appsawg-json-patch-01
-    diff = (obj1, obj2) ->
+    diff = (obj1, obj2, detectmoves=true) ->
         #Patches are only applicable to two of the same container types.
         if !isSameContainer obj1, obj2
             throw new Error('Patches can only be derived from objects or arrays');
@@ -215,14 +215,15 @@
 
         # Attempt to promote add/remove operations to a move operation.
         # The first occurence of the same value, we can promote to a move.
-        for key1, doc1 of remove
-            for key2, doc2 of add
-                if isEqual(doc2.value, doc1.value)                  
-                    # conver the add+remove to an move
-                    delete remove[key1]
-                    delete add[key2]              
-                    move[key2] = key1
-                    break
+        if detectmoves
+            for key1, doc1 of remove
+                for key2, doc2 of add
+                    if isEqual(doc2.value, doc1.value)                  
+                        # conver the add+remove to an move
+                        delete remove[key1]
+                        delete add[key2]              
+                        move[key2] = key1
+                        break
         
         # Populate the patch
         patch = []

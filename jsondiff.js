@@ -148,8 +148,11 @@
       }
       return paths;
     };
-    diff = function(obj1, obj2) {
+    diff = function(obj1, obj2, detectmoves) {
       var add, doc, doc1, doc2, key, key1, key2, keyfrom, keyto, move, patch, paths1, paths2, remove, replace;
+      if (detectmoves == null) {
+        detectmoves = true;
+      }
       if (!isSameContainer(obj1, obj2)) {
         throw new Error('Patches can only be derived from objects or arrays');
       }
@@ -179,15 +182,17 @@
           add[key] = doc2;
         }
       }
-      for (key1 in remove) {
-        doc1 = remove[key1];
-        for (key2 in add) {
-          doc2 = add[key2];
-          if (isEqual(doc2.value, doc1.value)) {
-            delete remove[key1];
-            delete add[key2];
-            move[key2] = key1;
-            break;
+      if (detectmoves) {
+        for (key1 in remove) {
+          doc1 = remove[key1];
+          for (key2 in add) {
+            doc2 = add[key2];
+            if (isEqual(doc2.value, doc1.value)) {
+              delete remove[key1];
+              delete add[key2];
+              move[key2] = key1;
+              break;
+            }
           }
         }
       }

@@ -17,7 +17,7 @@ AMD module.
 **Bower**
 
 ```
-bower install json-diff-patch
+bower install json-diff
 ```
 
 **NPM**
@@ -26,3 +26,14 @@ bower install json-diff-patch
 npm install json-diff-patch
 ```
 
+## Methods
+
+**`jsonpatch.diff(obj1, obj2)`**
+
+Generates a patch based on the differences bewtween obj1 and obj2 such that:
+
+```
+patch = jsondiff.diff(obj1, obj2);
+jsonpatch.apply(obj1, patch);
+//obj1 and obj2 will now be equal.
+```
