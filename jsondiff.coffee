@@ -1,4 +1,4 @@
-# jsonpatch.js 0.3.2
+# jsonpatch.js 0.0.2
 # (c) 2011-2013 Adam Griffiths
 # (c) 2011-2013 Byron Ruth
 # Original code started from https://gist.github.com/bruth/4715999
